@@ -1,0 +1,33 @@
+$fa-font-path: "../font";
+$html-font-size: 16;
+$white: #fff;
+$black: #000;
+$grey-trans46: #2F2F2F75;
+$grey-trans11: #FBFBFB1C;
+$grey: #767676;
+$white20: #ffffff33;
+
+
+@font-face {
+  font-family: 'Circular Spotify Text';
+  src: url('../font/CircularSpotifyText-Black.woff2') format('woff2'),
+      url('../font/CircularSpotifyText-Black.woff') format('woff');
+  font-weight: 700;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Circular Spotify Text';
+  src: url('../font/CircularSpotifyText-Light.woff2') format('woff2'),
+      url('../font/CircularSpotifyText-Light.woff') format('woff');
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}
+
+
+$primary-font: antarctican-mono, sans-serif;
+$spotify-font: 'Circular Spotify Text'
+
+
