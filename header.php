@@ -22,8 +22,8 @@
 	<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=2.0, user-scalable=yes">
 	<link rel="stylesheet" href="https://use.typekit.net/fnv6bjl.css">
 	<link rel="pingback" href="<?php bloginfo('pingback_url'); ?>">
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+	<link rel="preconnect" href="https://fonts.googleapis.com">
+	<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 
 	<?php wp_head(); ?>
 </head>
@@ -52,17 +52,17 @@
 		)(window, document, 'script', 'dataLayer', 'GTM-KS2GQ4');
 	</script>
 	<!-- End Google Tag Manager -->
-	
+
 	<header>
 		<div class="container">
 			<nav id="nav-menu">
-				<ul class="nav-items">
-					<li class="nav-item"><a href="./music">Music</a></li>
-					<li class="nav-item"><a href="./videos">Videos</a></li>
-					<li class="nav-item"><a target="_blank" href="https://shakira.store/">Store</a></li>
-					<li class="nav-item"><a target="_blank" href="https://www.shakiraperfumes.com/us/en">Fragrances</a></li>
-					<li class="nav-item"><a target="_blank" href="https://fundacionpiesdescalzos.com/en/">Philanthropy</a></li>
-				</ul>
+
+				<?php wp_nav_menu([
+					'theme_location' => 'navbar-menu',
+					'container' => false,
+					'menu_class' => 'nav-items'
+				]) ?>
+
 				<a id="logo" href="./home">
 					<h1>Shakira</h1>
 				</a>
@@ -89,7 +89,7 @@
 						<a class="btn join" href="https://www.shakira.com/wolfpack/">Join the Wolfpack</a>
 					</li>
 				</ul>
-				<a class="btn join-mobile" href="https://www.shakira.com/wolfpack/">Join the Wolfpack</a>
+				<a class="btn join-mobile" href="./wolfpack">Join the Wolfpack</a>
 			</nav>
 			<div class="mobile-menu-wrapper">
 				<div class="mobile-menu-icon">

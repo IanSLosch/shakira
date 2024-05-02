@@ -17,7 +17,7 @@ if (have_posts()) {
 			?>
 
 		<div class="wolfpack-float videos-page">
-			<a class="btn" href="https://www.shakira.com/wolfpack/" target="_blank">Join Wolfpack</a>
+			<a class="btn" href="./wolfpack" target="_blank">Join Wolfpack</a>
 		</div>
 
 		<section id="videos">

@@ -133,17 +133,17 @@ header {
 			}
 
 			a#logo {
-				position: absolute;
-				left: 50%;
-				top: 50%;
-				transform: translate(-50%, -50%);
+				// position: absolute;
+				// left: 50%;
+				// top: 50%;
+				// transform: translate(-50%, -50%);
 				text-transform: uppercase;
 				margin: 0;
 
-				@media screen and (max-width: 1070px) {
-					position: static;
-					transform: none;
-				}
+				// @media screen and (max-width: 1070px) {
+				// 	position: static;
+				// 	transform: none;
+				// }
 
 				@include tablet-down {
 					order: 1;
@@ -272,8 +272,44 @@ header {
 	}
 
 	section#home {
+
+		section.tour {
+			font-size: rems(18);
+			padding-top: rems(30);
+			padding-bottom: rems(30);
+
+			.container {
+				@media screen and (max-width: 1200px) {
+					padding: 0;
+				}
+
+				h2 {
+					text-align: center;
+					font-size: rems(32);
+					margin-bottom: rems(50);
+				}
+
+				img {
+					width: 100%;
+				}
+
+				p {
+					text-align: center;
+					margin: rems(50) 0 0;
+
+					a {
+						font-weight: 700;
+
+						@include hover-focus {
+							opacity: .5;
+						}
+					}
+				}
+			}
+		}
+
+
 		section#hero {
-			background-image: url('../img/bg/hero.png');
 			background-position: center;
 			background-size: cover;
 			background-repeat: no-repeat;
@@ -724,7 +760,7 @@ header {
 					.cover {
 						width: 100%;
 						margin-bottom: rems(16);
-					} 
+					}
 
 
 					.info-wrapper {
@@ -1079,7 +1115,7 @@ section#newsletter-wolfpack {
 					border: 1px solid $white;
 				}
 			}
-		} 
+		}
 	}
 }
 
@@ -1109,6 +1145,82 @@ footer {
 
 		a {
 			text-decoration: underline;
+		}
+	}
+}
+
+
+section#tour-import {
+
+	.container {
+		h2 {
+			text-align: center;
+			margin-bottom: rems(50);
+		}
+
+		p {
+			font-weight: 700;
+			text-transform: uppercase;
+			font-size: rems(20);
+			text-align: center;
+			margin: rems(100) 0 rems(40);
+		}
+
+		#tour-dates {
+			margin-bottom: rems(150);
+
+			.event-group {
+				display: flex;
+				gap: rems(16);
+				margin: rems(24) 0;
+
+				@include tablet-down {
+					flex-direction: column;
+					margin-bottom: rems(40);
+				}
+
+				.event-date {
+					flex: .6;
+					display: flex;
+					align-items: center;
+
+					@include tablet-down {
+						justify-content: center;
+					}
+				}
+
+				.event-venue {
+					flex: 1.2;
+					display: flex;
+					align-items: center;
+
+					@include tablet-down {
+						justify-content: center;
+					}
+				}
+
+				.event-location {
+					flex: 1;
+					display: flex;
+					align-items: center;
+					justify-content: center;
+				}
+
+				.event-links {
+					flex: .6;
+					display: flex;
+					justify-content: flex-end;
+					align-items: center;
+
+					@include tablet-down {
+						justify-content: center;
+					}
+
+					a.btn {
+						padding: rems(6) rems(20);
+					}
+				}
+			}
 		}
 	}
 }

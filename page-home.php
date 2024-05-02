@@ -7,8 +7,7 @@ get_header();
 if (have_posts()) {
 	while (have_posts()) {
 		the_post();
-
-
+		$hero_bg = wp_get_attachment_image_url(get_field('hero_background_image'), 'full');
 		$small_header = get_field('small_header');
 		$main_header = get_field('main_header');
 		$cta_link = get_field('cta_link');
@@ -17,26 +16,55 @@ if (have_posts()) {
 			$header_link_title = $cta_link['title'];
 			$header_link_target = $cta_link['target'];
 		}
+
+		$tour_image = wp_get_attachment_image_url(get_field('tour_image'), 'full');
+		$tour_link = get_field('tour_link');
 		?>
 
 		<section id="home">
-			<section id="hero">
+			<?php
+			if (!empty($tour_image)) {
+				?>
+				<section class="tour">
+					<a href="<?php echo $tour_link ?>" target="_blank">
+						<img src="<?php echo $tour_image ?>" alt="Tour">
+					</a>
+				</section>
+				<?php
+			}
+			?>
+
+
+			<section id="tour-import">
 				<div class="container">
-					<div class="info">
-						<div class="text">
-							<p>
-								<?php echo $small_header; ?>
-							</p>
-							<h2>
-								<?php echo $main_header; ?>
-							</h2>
-						</div>
-						<a target="_blank" class="btn last-button" href="<?php echo $header_link_url; ?>">
-							<?php echo $header_link_title; ?>
-						</a>
-					</div>
+					<div id="tour-dates"></div>
 				</div>
 			</section>
+
+
+			<?php
+			if (!empty($hero_bg)) {
+				?>
+				<section id="hero" style="background-image: url(<?php echo $hero_bg ?>);">
+					<div class="container">
+						<div class="info">
+							<div class="text">
+								<p>
+									<?php echo $small_header; ?>
+								</p>
+								<h2>
+									<?php echo $main_header; ?>
+								</h2>
+							</div>
+							<a target="_blank" class="btn last-button" href="<?php echo $header_link_url; ?>">
+								<?php echo $header_link_title; ?>
+							</a>
+						</div>
+					</div>
+				</section>
+				<?php
+			}
+			?>
 
 			<section id="editions">
 				<div class="container">
@@ -97,32 +125,38 @@ if (have_posts()) {
 			$video_player_poster = wp_get_attachment_image_url(get_field('video_player_poster', 'option'), 'full');
 			?>
 
-			<section id="featured-video">
-				<div class="container">
+			<?php
+			if (!empty($featured_video_url)) {
+				?>
+				<section id="featured-video">
+					<div class="container">
 
-					<div class="video-wrapper">
-						<div class="poster-wrapper">
-							<img class="poster" src="<?php echo $video_player_poster ?>" alt="<?php echo $featured_video_title ?>">
-							<div class="poster-overlay"></div>
-							<div class="play play-overlay">
-								<div class="icon-wrapper">
-									<img class="outline" src="<?php echo $play_icon ?>" alt="Play">
-									<img class="color" src="<?php echo $play_icon_hover ?>" alt="Play">
+						<div class="video-wrapper">
+							<div class="poster-wrapper">
+								<img class="poster" src="<?php echo $video_player_poster ?>" alt="<?php echo $featured_video_title ?>">
+								<div class="poster-overlay"></div>
+								<div class="play play-overlay">
+									<div class="icon-wrapper">
+										<img class="outline" src="<?php echo $play_icon ?>" alt="Play">
+										<img class="color" src="<?php echo $play_icon_hover ?>" alt="Play">
+									</div>
+									<p>Play</p>
 								</div>
-								<p>Play</p>
+							</div>
+							<div class="embed-container">
+								<iframe width="560" height="315" src="https://www.youtube.com/embed/<?php echo get_youtube_id($featured_video_url) ?>" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
 							</div>
 						</div>
-						<div class="embed-container">
-							<iframe width="560" height="315" src="https://www.youtube.com/embed/<?php echo get_youtube_id($featured_video_url) ?>" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
-						</div>
-					</div>
 
-					<p class="title">
-						<?php echo $featured_video_title ?>
-					</p>
-					<a class="btn" href="./videos" target="_blank">See More</a>
-				</div>
-			</section>
+						<p class="title">
+							<?php echo $featured_video_title ?>
+						</p>
+						<a class="btn" href="./videos" target="_blank">See More</a>
+					</div>
+				</section>
+			<?php
+			}
+			?>
 
 			<?php
 			$newsletter_title = get_field('newsletter_title', 'option');
